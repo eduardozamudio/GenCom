@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-mar-2014 11:43:22 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+ <class name="main.java.edu.isistan.genCom.redSocial.LugarDeTrabajo"
+  schema="public" table="lugares_de_trabajo">
+  <id name="id" type="long">
+   <column name="id"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="direccion" type="string">
+   <column name="direccion"/>
+  </property>
+  <property generated="never" lazy="false" name="nombre" type="string">
+   <column name="nombre"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="investigadoreses"
+   sort="unsorted" table="investigadores_lugar">
+   <key>
+    <column name="lugar_de_trabajo_id" not-null="true"/>
+   </key>
+   <many-to-many
+    class="main.java.edu.isistan.genCom.redSocial.Investigador" unique="false">
+    <column name="investigador_id" not-null="true"/>
+   </many-to-many>
+  </set>
+  <!--         <set name="redeses" table="lugares_de_trabajo_red" inverse="true" lazy="true" fetch="select"> 
+             <key> 
+                 <column name="lugar_de_trabajo_id" not-null="true" /> 
+             </key> 
+             <many-to-many entity-name="main.resources.Redes"> 
+                 <column name="red_id" not-null="true" /> 
+             </many-to-many> 
+         </set> -->
+ </class>
+</hibernate-mapping>

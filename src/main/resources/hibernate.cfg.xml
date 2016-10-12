@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- <property name="jndi.class">com.sun.jndi.fscontext.RefFSContextFactory</property> 
+			<property name="jndi.url">file:///tmp</property> <property name="hibernate.session_factory_name">hibernate/HibernateFactory</property> -->
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.password">red_social</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/red_social</property>
+		<property name="hibernate.connection.username">red_social</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+		<property name="connection.provider_class">
+			org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.acquire_increment">1</property>
+		<property name="hibernate.c3p0.idle_test_period">5</property>
+		<property name="hibernate.c3p0.max_size">100</property>
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<property name="hibernate.c3p0.min_size">10</property>
+		<property name="hibernate.c3p0.timeout">5</property>
+<!-- 		<property name="hibernate.c3p0.acquireRetryAttempts">0</property> -->
+<!-- 		<property name="hibernate.c3p0.breakAfterAcquireFailure">true</property> -->
+
+
+		<!-- mapping files -->
+		<mapping resource="Investigadores.hbm.xml" />
+		<mapping resource="LugaresDeTrabajo.hbm.xml" />
+		<mapping resource="Publicaciones.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
